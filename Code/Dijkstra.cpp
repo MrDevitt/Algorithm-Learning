@@ -7,6 +7,7 @@ const int Maxv = 1000;
 
 int n, m, s, G[Maxv][Maxv];//n为顶点数 m为边数 s为起点
 int d[Maxv];
+int pre[Maxv];
 bool visit[Maxv] = {false};
 
 void Dijkstra(int s){
@@ -27,9 +28,19 @@ void Dijkstra(int s){
         for (int k = 0; k < n; k++){
             if(visit[k] == false && G[u][k] != Inf && d[u] + G[u][k] < d[k]){
                 d[k] = d[u] + G[u][k];
+                pre[k] = u;
             }
         }
     }
+}
+
+void Path(int s, int des){
+    if(pre[des]==s){
+        printf("%d\n", s);
+        return;
+    }
+    Path(s, pre[des]);
+    printf("%d\n", des);
 }
 
 int main(){
@@ -45,5 +56,7 @@ int main(){
     for (int i = 0; i < n; i++){
         printf("%d ", d[i]);
     }
+    printf("\nThe path is :\n");
+    Path(s, 5);
     return 0;
 }
