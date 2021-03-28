@@ -5,42 +5,28 @@ using namespace std;
 
 class Solution {
 public:
-    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-        vector<int> num;
-        int i = 0,j = 0;
-        while (i < nums1.size() && j < nums2.size()){
-            if (nums1[i] < nums2[j]){
-                num.push_back(nums1[i++]);
-            }
-            else{
-                num.push_back(nums2[j++]);
-            }
+    string convert(string s, int numRows) {
+
+        if (numRows == 1) return s;
+
+        vector<string> rows(min(numRows, int(s.size())));
+        int curRow = 0;
+        bool goingDown = false;
+
+        for (char c : s) {
+            rows[curRow] += c;
+            if (curRow == 0 || curRow == numRows - 1) goingDown = !goingDown;
+            curRow += goingDown ? 1 : -1;
         }
-        if(i==nums1.size()){
-            while(j<nums2.size())
-                num.push_back(nums2[j++]);
-        }
-        else{
-            while(i<nums1.size())
-                num.push_back(nums1[i++]);
-        }
-        int n = num.size(); 
-        if(n%2==0){
-            return (double)(num[n / 2] + num[n / 2 - 1]);
-        }
-        else{
-            return (double)num[(n - 1) / 2];
-        }
+        string ret;
+        for (string row : rows) ret += row;
+        return ret;
     }
 };
 
 int main(){
-    vector<int> n1, n2;
-    n1.push_back(1);
-    n1.push_back(2);
-    n2.push_back(3);
-    n2.push_back(4);
+    string s = "cbbd";
     Solution sol;
-    double res = sol.findMedianSortedArrays(n1, n2);
+    string res = sol.longestPalindrome(s);
     return 0;
 }
