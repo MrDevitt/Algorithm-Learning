@@ -27,6 +27,5 @@ public:
 int main(){
     string s = "cbbd";
     Solution sol;
-    string res = sol.longestPalindrome(s);
     return 0;
 }
