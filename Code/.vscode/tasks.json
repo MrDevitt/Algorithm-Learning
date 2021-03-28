@@ -4,7 +4,8 @@
 		{
 			"type": "cppbuild",
 			"label": "C/C++: g++.exe build active file",
-			"command": "D:\\VSCode\\mingw64\\bin\\g++.exe",
+			//"command": "D:\\VSCode\\mingw64\\bin\\g++.exe",
+			"command": "H:\\MinGW-w64\\mingw64\\bin\\g++.exe",
 			"args": [
 				"-g",
 				"${file}",
@@ -12,7 +13,8 @@
 				"${fileDirname}\\${fileBasenameNoExtension}.exe"
 			],
 			"options": {
-				"cwd": "D:\\VSCode\\mingw64\\bin"
+				//"cwd": "D:\\VSCode\\mingw64\\bin"
+				"cwd": "H:\\MinGW-w64\\mingw64\\bin"
 			},
 			"problemMatcher": [
 				"$gcc"
@@ -21,7 +23,8 @@
 				"kind": "build",
 				"isDefault": true
 			},
-			"detail": "compiler: D:\\VSCode\\mingw64\\bin\\g++.exe"
+			//"detail": "compiler: D:\\VSCode\\mingw64\\bin\\g++.exe"
+			"detail": "compiler: H:\\MinGW-w64\\mingw64\\bin\\g++.exe"
 		}
 	]
 }
