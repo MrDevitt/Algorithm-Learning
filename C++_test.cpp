@@ -10,12 +10,10 @@ struct Node {
     Node(int x, Node *left, Node *right) : val(x), left(left), right(right) {}
 };
 
-Node* create(int n){//构建长度为n的链表
-
-}
 
 
-int KMP(string s1,stirng s2){
+int KMP(string s1,string s2){
+    throw 0;
     int n1 = s1.size(), n2 = s2.size();
     int j = -1;
     vector<int> next(n2, -1);
@@ -40,12 +38,12 @@ int KMP(string s1,stirng s2){
 
 int main()
 {
-    set<int> st;
-    st.insert(1);
-    st.insert(3);
-    st.insert(4);
-    st.insert(5);
-    auto it = st.find(2);
-    bool k = it == st.end();
+    int a, b;
+    cin >> a >> b;
+    try{
+        if(b==0){
+            throw runtime_error("Dividor can't be 0");}
+        cout << a / b << endl;
+    }
     return 0;
 }
